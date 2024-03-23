@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Oussama Store</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+      *ngIf="userService.roleMatch(['Owner'])">
+        <a routerLink="/" style="cursor: pointer">Store owner view</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="userService.roleMatch(['Owner'])">
+        <a routerLink="/sales" style="cursor: pointer">Sales</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="userService.roleMatch(['Owner'])">
+        <a routerLink="/myclients" style="cursor: pointer">myClients</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="userService.roleMatch(['Client'])">
+        <a routerLink="/home" style="cursor: pointer">Home</a>
+      </li>
+
+      <li routerLinkActive="active"  *ngIf="!isLoggedIn()">
+        <a routerLink="/login" style="cursor: pointer">Login</a>
+      </li>
+
+      <li routerLinkActive="active"  *ngIf="!isLoggedIn()">
+        <a routerLink="/signup" style="cursor: pointer">Signup</a>
+      </li>
+
+      <li routerLinkActive="active" *ngIf="isLoggedIn()">
+        <a style="cursor: pointer" (click)="logout()">Logout</a>
+      </li>
+
+    </ul>
+    <div class="nav navbar-nav navbar-right" *ngIf="userService.roleMatch(['Client'])">
+      <div class="icon">
+        <a routerLink="/purchase" class="glyphicon-shopping-cart glyphicon" style="font-size:25px"></a>
+      </div>
+    </div>
+
+  </div>
+</nav>

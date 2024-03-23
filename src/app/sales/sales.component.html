@@ -1,0 +1,32 @@
+
+
+<br>
+<br>
+<div class="container">
+<table id="customers">
+  <tr>
+    <th>Name Client</th>
+    <th>Email (unique)</th>
+    <th>Mat Product (unique)</th>
+    <th>Name Product</th>
+    <th>Price</th>
+    <th>Quantity Sold</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let sale of salesList">
+    <td>{{sale.nameClient}}</td>
+    <td>{{sale.email}}</td>
+    <td>{{sale.matProduct}}</td>
+    <td>{{sale.nameProduct}}</td>
+    <td>{{sale.price}} $</td>
+    <td>{{sale.quantitySold}}</td>
+    <td style="color: #04AA6D">+{{sale.quantitySold*sale.price| number:'1.0-2'}} $</td>
+  </tr>
+</table>
+</div>
+<div class="wallet">
+  <hr>
+  <i class='fas fa-wallet' style='font-size:30px'>  Wallet : {{owner.wallet}}$</i>
+</div>
+
+

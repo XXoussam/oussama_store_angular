@@ -1,0 +1,49 @@
+.card {
+  border: none;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  margin-bottom: 30px;
+  max-width: 250px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.price {
+  color: #209f20;
+  font-size: 22px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+
+
+.btnn {
+  background-color: dodgerblue;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Darker background on mouse-over */
+.btnn:hover {
+  background-color: RoyalBlue;
+
+}
+
+.grpbtn{
+  display: flex;
+  justify-content: space-between;
+}
+
+.grpbtn button{
+  width: 49%;
+}
+

@@ -1,0 +1,60 @@
+
+
+<div class="container">
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-10" >
+      <div class="row p-2 bg-white border rounded"  *ngFor="let item of items; let i = index"
+           style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); margin-top: 30px;margin-right: -140px;">
+        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{item.imgUrl}}"></div>
+        <div class="col-md-6 mt-1">
+          <h3>{{item.name}} : {{item.id}}</h3>
+          <hr>
+          <p class="text-justify text-truncate para mb-0">{{item.description}}<br><br></p>
+        </div>
+        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+          <a>
+                <span *ngIf="item.id" class="glyphicon glyphicon-remove"
+                      style="font-size: 20px; color: red;margin-left: 150px;margin-top: 17px;"
+                      (click)="deletePurchase(item.id)"></span>
+          </a>
+          <div class="d-flex flex-row align-items-center">
+
+            <h4 class="mr-1" style="color: green">${{item.price}}</h4>
+
+          </div>
+          <h4 *ngIf="item.id">Quantity : {{getQuantityFromItem(item.id)}}</h4>
+
+
+          <div class="d-flex flex-column mt-4">
+            <button class="btn btn-primary btn-sm" type="button" (click)="createNewInputFields(item)">modify quantity</button>
+            <br>
+            <br>
+            <div *ngIf="createNewInput && itemid === item.id" style="display: flex; justify-content: space-between;width: 208px;">
+              <input  #newQuantity  type="number" min="0" required>
+              <a>
+                <span *ngIf="item.id" class="glyphicon glyphicon-saved" style="font-size: 20px"
+                      (click)="savePurchase(getPurchaseFromItem(item.id))"></span>
+              </a>
+            </div>
+            <h4 *ngIf="item.id">total : ${{item.price*getQuantityFromItem(item.id)|number:'1.0-2'}}</h4>
+            <!--<button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div *ngIf="purchases.length>0" style="margin-left: 1000px;
+    margin-bottom: 40px;
+    ">
+  <h3 style="color: green">total price : $ {{getTotalPrice()}}</h3>
+  <button class="btn btn-success" style="font-size: 18px" (click)="buy()">buy</button>
+</div>
+<h3 *ngIf="purchases.length==0" style="text-align: center">No Purchases Added</h3>
+

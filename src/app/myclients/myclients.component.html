@@ -1,0 +1,23 @@
+
+
+<br>
+<br>
+<div class="container">
+  <table id="customers">
+    <tr>
+      <th>Name Client</th>
+      <th>Email (unique)</th>
+      <th>how many did he spend</th>
+
+    </tr>
+    <tr *ngFor="let client of clientManagerList">
+      <td>{{client.name}}</td>
+      <td>{{client.email}}</td>
+      <td style="color: green"> ${{client.spend}}</td>
+
+    </tr>
+  </table>
+</div>
+
+
+

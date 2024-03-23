@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="card" style="padding: 20px">
+    <form #signupForm ="ngForm" (ngSubmit)="signup(signupForm)">
+      <label>Name :</label>
+      <input type="text"
+             ngModel
+             name="name"
+             id="name"
+             placeholder="enter ur name"
+             class="form-control"
+             class="form-control" style="width: 50%"
+             required
+      >
+      <br>
+      <label>email :</label>
+      <input type="text"
+             ngModel
+             name="email"
+             id="email"
+             placeholder="enter ur email"
+             class="form-control"
+             class="form-control" style="width: 50%"
+             required
+      >
+      <br>
+      <label>password :</label>
+      <input type="password"
+             ngModel
+             name="userPassword"
+             id="userPassword"
+             placeholder="enter ur userPassword"
+             class="form-control" style="width: 50%"
+             required
+      >
+      <br>
+      <label>Deposit your wallet :</label>
+      <input type="number"
+             min="100"
+             ngModel
+             name="wallet"
+             id="wallet"
+             placeholder="enter ur wallet"
+             class="form-control"
+             class="form-control" style="width: 50%"
+             required
+      >
+      <hr>
+      <input type="submit" value="signup" class="btn btn-primary form-control rounded-0"
+             style="width: 15%;margin-left: 130px; color: black"
+             [disabled]="signupForm.invalid">
+    </form>
+  </div>
+</div>

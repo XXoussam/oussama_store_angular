@@ -1,0 +1,30 @@
+<hr>
+<br>
+
+<div class="container" id="main-container">
+<div *ngFor="let item of items">
+  <div class="col-sm-4">
+    <div class="card">
+
+      <img src="{{item.imgUrl}}" alt="Denim Jeans" style="width:100%">
+      <div class="pgh">
+      <h1>{{item.name}}</h1>
+      <p class="price">{{item.price}}$</p>
+      <p>{{item.description}}</p>
+      </div>
+      <div class="grpbtn">
+        <button class="btnn" (click)="addPurchase(item)"><i>Add to purchase</i></button>
+      </div>
+      <div *ngIf="addPurchases && itemid === item.id" style="display: flex; justify-content: space-between;width: 240px;margin-left: 10px;margin-top: 12px;">
+        <label>quantity : </label>
+        <input  #quantity  type="number" min="0" required>
+        <a>
+                <span class="glyphicon glyphicon-saved" style="font-size: 20px"
+                      (click)="savePurchase(item)"></span>
+        </a>
+      </div>
+      <br>
+      </div>
+    </div>
+  </div>
+</div>
